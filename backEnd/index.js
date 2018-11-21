@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 
 const app = express();
-const {mySqlConnection } = require('./database');
+//const {mySqlConnection } = require('./database'); // código enviado a controladores
 
 //Settings
 app.set('port', process.env.PORT || 3000);

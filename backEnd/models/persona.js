@@ -1,13 +1,15 @@
 class Persona{// esta clase necesita mejorar mucho, estudiar como hacer mejor;
-    constructor(rut, nombre, carrera, castigado){
+    constructor(rut, nombre, apellido, carrera, castigado){
         this.rut = rut;
         this.nombre = nombre;
+        this.apellido = apellido;
         this.carrera = carrera;
         this.castigado = castigado;
     }
     constructor(){
         this.rut = '';
         this.nombre = '';
+        this.apellido = '';
         this.carrera = '';
         this.castigado = '';
     }
@@ -25,6 +27,12 @@ class Persona{// esta clase necesita mejorar mucho, estudiar como hacer mejor;
     getNombre(){
         return this.nombre;
     }
+    setApellido(apellido){
+        this.apellido = apellido;
+    }
+    getApellido(){
+        return this.apellido;
+    }
     setCarrera(carrera){
         this.carrera = carrera;
     }
@@ -38,7 +46,7 @@ class Persona{// esta clase necesita mejorar mucho, estudiar como hacer mejor;
         return this.castigado;
     }
     detalles(){
-        console.log('rut: ${this.rut}, nombre: ${this.nombre}, carrera: ${this.carrera}, castigado: ${this.castigado}');
+        console.log('rut: ${this.rut}, nombre: ${this.nombre}, apellido: ${this.apellido}, carrera: ${this.carrera}, castigado: ${this.castigado}');
     }
 
 }
