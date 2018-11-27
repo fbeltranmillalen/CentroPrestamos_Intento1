@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-content">
+          <form #personaForm="ngForm" ngSubmit="addPersona(personaForm)">
+            <input type="hidden" name="id" #id="ngModel" [(ngModel)] = "personaService.selectedPersona.id">
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="text" name="rut" #rut="ngModel" [(ngModel)]="personaService.selectedPersona.rut" placeholder="Ingresa tu RUT">
+
+              </div>
+              <div class="input-field col s12">
+                <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="personaService.selectedPersona.nombre" placeholder="Ingresa tu nombre">
+
+              </div>
+              <div class="input-field col s12">
+                <input type="text" name="apellido" #apellido="ngModel" [(ngModel)]="personaService.selectedPersona.apellido" placeholder="Ingresa tu apellido">
+
+              </div>
+              <div class="input-field col s12">
+                <input type="text" name="carrera" #carrera="ngModel" [(ngModel)]="personaService.selectedPersona.carrera" placeholder="Ingresa tu carrera">
+
+              </div>
+              <div class="input-field col s12">
+                  <input type="hidden" value="0" name="castigado" #castigado="ngModel" [(ngModel)]="personaService.selectedPersona.castigado" placeholder="Castigado">
+  
+                </div>
+              <div class="card-action">
+                <div class="input-field col s12">
+                  <button class="btn right" (click)="addPersona(personaForm)">Save</button>
+                  <button class="btn right" (click)="resetForm(personaForm)">Clean</button>  
+  
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+      <table>
+        <thead>
+          <th>Rut</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Carrera</th>
+          <th>Castigado</th>
+          <th>Operaciones</th>
+
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of personaService.personas">
+            <td>{{ persona.rut }}</td>
+            <td>{{ persona.nombre }}</td>
+            <td>{{ persona.apellido }}</td>
+            <td>{{ persona.carrera }}</td>
+            <td>{{ persona.castigado }}</td>
+            <td>
+              <a (click)="editPersona(persona)"> <i class="material-icons">edit</i></a>
+              <a (click)="deletePersona(persona.id)"> <i class="material-icons">delete</i></a>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
